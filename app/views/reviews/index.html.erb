@@ -1,0 +1,7 @@
+<h1>All Car Reviews</h1>
+
+<ul>
+<% @reviews.each do |r| %>
+   <li><%= r.vehicle.name %> - <%= r.rating %> - <%= r.content %></li> 
+</ul>
+<% end %>

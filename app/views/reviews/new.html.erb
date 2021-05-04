@@ -1,0 +1,20 @@
+<h1>Right New Review for <%= @review.vehicle.name %> </h1>
+
+<%= form_for(@review) do |f|%>
+<div>
+  <%= f.label :rating %>
+  <%= f.number_field :rating, min:0, max:10 %>
+</div>
+<br>
+<div>
+  <%= f.label :content%>
+  <%= f.text_area :content %>
+</div>
+<br>
+<div>
+  <%= f.hidden_field :vehicle_id %>
+</div>
+  <%= f.submit %>
+
+
+<% end %>
