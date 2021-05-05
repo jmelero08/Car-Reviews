@@ -1,8 +1,21 @@
+<% if params[:vehicle_id] %>
+  <h1>Add review for <%= @review.vehicle.name %> - <%= @review.vehicle.type.name %></h1>
+<% else %>
+  <h1>Create a new review</h1>
+<% end %>
+
 <%= render partial: 'layouts/errors', locals: {object: @review}  %>
 
-<h1>Right New Review for <%= @review.vehicle.name %> </h1>
 
 <%= form_for(@review) do |f|%>
+  <% if params[:vehicle_id] %>
+    <%= f.hidden_field :vehicle_id %>
+  <% else %>
+    <div>
+      <%= f.label :vehicle_id, "Select a Vehicle"%>
+      <%= f.collection_select :vehicle_id, Vehicle.alpha, :id, :name_and_year, include_blank: true %>
+    </div>
+  <% end %>
 <div>
   <%= f.label :rating %>
   <%= f.number_field :rating, min:0, max:10 %>

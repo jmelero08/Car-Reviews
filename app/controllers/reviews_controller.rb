@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
         if @vehicle = Vehicle.find_by_id(params[:vehicle_id])
             @review = @vehicle.reviews.build
         else 
-            @reviews = Review.new
+            @review = Review.new
         end
     end
 

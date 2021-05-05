@@ -10,7 +10,9 @@ class Vehicle < ApplicationRecord
   validate :not_a_duplicate
 
 
-
+  def self.alpha
+    order(:name)
+  end
 
   def not_a_duplicate
     vehicle = Vehicle.find_by(name: name, year: year, type_id: type_id)
@@ -18,4 +20,9 @@ class Vehicle < ApplicationRecord
       errors.add(:name, 'has already been added for that type')
     end
   end
+
+  def name_and_year
+    "#{name} - #{year}"
+  end 
+  
 end
