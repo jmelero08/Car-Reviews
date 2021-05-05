@@ -2,7 +2,7 @@
 
 <ol>
     <% @vehicles.each do |v| %>
-        <li><%= v.name%> - <%= v.type.name %></li>
+        <li><%= v.year %> <%= v.name%> - <%= v.type.name %></li>
         <%= link_to "Write a review", new_vehicle_review_path(v.id) %>
     <% end %>
 </ol>

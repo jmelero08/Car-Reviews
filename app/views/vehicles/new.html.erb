@@ -1,3 +1,5 @@
+<%= render partial: 'layouts/errors', locals: {object: @vehicle}  %>
+
 <h1>Make a new car!</h1>
 
 
@@ -8,19 +10,13 @@
   <%= f.label :year%>
   <%= f.text_field :year %>
 
-  <p> Select a Type of vehicle if already created.</p>
+  <p> What type of vehicle is this?</p>
   <div>
     <%= f.collection_select :type_id, Type.all, :id, :name, include_blank: 'Select One'%>
   </div>
-
-  <p> Or create a new type vehicle.</p>
   <div>
-    <%=f.fields_for :type do |t| %>
-      <%= t.label :name %>
-      <%= t.text_field :name %>
-    <% end %>
-  </div>
   <%= f.submit%>
+  </div>
 <% end %>
 
 
