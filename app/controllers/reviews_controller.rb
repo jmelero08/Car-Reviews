@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
 
+    before_action :redirect_if_not_logged_in
+
     def new
         if @vehicle = Vehicle.find_by_id(params[:vehicle_id])
             @review = @vehicle.reviews.build

@@ -1,5 +1,7 @@
 class VehiclesController < ApplicationController
 
+    before_action :redirect_if_not_logged_in
+
     def new
         @vehicle = Vehicle.new
         @vehicle.build_type
@@ -22,6 +24,9 @@ class VehiclesController < ApplicationController
 
     def show
         @vehicle = Vehicle.find_by_id(params[:id]) 
+    end
+
+    def edit
     end
 
     private

@@ -1,23 +1,7 @@
-<%= render partial: 'layouts/errors', locals: {object: @vehicle}  %>
 
 <h1>Make a new car!</h1>
 
-
-<%= form_for(@vehicle) do |f|%>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :year%>
-  <%= f.text_field :year %>
-
-  <p> What type of vehicle is this?</p>
-  <div>
-    <%= f.collection_select :type_id, Type.all, :id, :name, include_blank: 'Select One'%>
-  </div>
-  <div>
-  <%= f.submit%>
-  </div>
-<% end %>
+<%= render partial: "form"%>
 
 
 

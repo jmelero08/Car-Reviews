@@ -2,6 +2,9 @@
 
 <ul>
 <% @reviews.each do |r| %>
-   <li><%= r.vehicle.name %> - <%= r.rating %> - <%= r.content %></li> 
-</ul>
+   <li>
+   <%= r.vehicle.name %> - <%= r.rating %> - <%= r.content %>
+   </li> <br> 
+
 <% end %>
+</ul>
