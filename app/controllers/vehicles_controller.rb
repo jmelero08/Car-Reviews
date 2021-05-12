@@ -26,7 +26,9 @@ class VehiclesController < ApplicationController
         @vehicle = Vehicle.find_by_id(params[:id]) 
     end
 
+
     def edit
+        @vehicle = Vehicle.find_by_id(params[:id]) 
     end
 
     private

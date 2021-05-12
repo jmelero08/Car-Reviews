@@ -4,6 +4,9 @@
 
 <h2> <%= @vehicle.type.name%> </h2>
 
-<h3>Added by: <%= link_to @vehicle.user.username %> </h3>
+<h3>Added by: <%= (@vehicle.user.username) %> </h3>
 
 <%= link_to "Edit #{@vehicle.name}", edit_vehicle_path(@vehicle) if @vehicle.user == current_user%>
+<br>
+<%= link_to "See all Reviews", vehicle_reviews_path(@vehicle) %>
+<br>
