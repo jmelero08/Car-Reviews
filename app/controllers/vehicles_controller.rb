@@ -19,7 +19,7 @@ class VehiclesController < ApplicationController
     end
 
     def index
-        @vehicles = Vehicle.all
+        @vehicles = Vehicle.order_by_rating
     end
 
     def show

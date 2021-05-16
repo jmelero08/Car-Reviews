@@ -9,6 +9,7 @@ class Vehicle < ApplicationRecord
   validates :year, presence: true
   validate :not_a_duplicate
 
+  scope :order_by_rating, ->  {left_joins(:reviews).group(:id).order('avg(rating) desc')}
 
   def self.alpha
     order(:name)
