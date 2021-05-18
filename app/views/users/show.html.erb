@@ -1,1 +1,9 @@
 <h1>Welcome <%= @user.username%></h1>
+
+<h3>Here are the cars that you have reviewed.</h3>
+
+<ul>
+    <% @user.reviewed_vehicles.each do |rv| %>
+    <li> <%= link_to rv.name_and_year, vehicle_path(rv) %> </li>
+    <% end %>
+</ul>
