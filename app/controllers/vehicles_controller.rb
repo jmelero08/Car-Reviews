@@ -28,7 +28,12 @@ class VehiclesController < ApplicationController
 
 
     def edit
-        @vehicle = Vehicle.find_by_id(params[:id]) 
+        @vehicle = Vehicle.find_by_id(params[:id])
+        if @vehicle.user == current_user
+            @vehicle.save
+        else 
+            render :show
+        end
     end
 
     def update
