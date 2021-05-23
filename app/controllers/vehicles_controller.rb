@@ -31,6 +31,15 @@ class VehiclesController < ApplicationController
         @vehicle = Vehicle.find_by_id(params[:id]) 
     end
 
+    def update
+        @vehicle = Vehicle.find_by_id(params[:id]) 
+        if @vehicle.update(vehicle_params)
+            redirect_to vehicle_path(@vehicle)
+        else 
+            render :edit
+        end
+    end
+
     private
 
     def vehicle_params
